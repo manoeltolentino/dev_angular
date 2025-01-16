@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
-import { HomeComponents } from './home/home.component';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [HomeComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'default';
