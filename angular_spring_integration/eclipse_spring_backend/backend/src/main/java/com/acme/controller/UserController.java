@@ -19,6 +19,14 @@ public class UserController {
     // standard constructors
     @Autowired
     private UserRepository userRepository;
+	
+	public UserController() {
+		super();
+	}
+	
+	public UserController(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
     @GetMapping("/users")
     public List<User> getUsers() {
