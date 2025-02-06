@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule }  from '@angular/material/button'
 import { MatInputModule } from '@angular/material/input';
-import { MatTableModule } from '@angular/material/table';
+import { MatTable, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { Item } from '../item';
 import { ItemService } from '../item.service';
@@ -20,7 +20,8 @@ export class ItemComponent {
   items: Item[] = [];
   item: Item = { id: 0, name: '', description: ''};
   displayedColumns: string[] = ['name', 'description', 'actions'];
-  
+
+  @ViewChild(MatTable) table!: MatTable<any>;  
 
   constructor(private itemService: ItemService){
     this.getItems();
@@ -45,9 +46,7 @@ export class ItemComponent {
     this.resetForm();
     this.getItems();
 
-    console.log(this.items);
-
-    
+    this.table.renderRows();
 
   }
 
